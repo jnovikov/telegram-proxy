@@ -10,4 +10,5 @@ WORKDIR /app
 COPY --from=build-env /src/proxy /app/
 ENV SOCKS_USER=user
 ENV SOCKS_PASSWORD=password
+ENV PROXY_PORT=1080
 CMD ["./proxy"]

@@ -71,7 +71,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	if err := server.ListenAndServe("tcp", "0.0.0.0:1080"); err != nil {
+	port := os.Getenv("PROXY_PORT")
+	if port == "" {
+		port = "1080"
+	}
+	if err := server.ListenAndServe("tcp", "0.0.0.0:" + port); err != nil {
 		panic(err)
 	}
 }
